@@ -1,0 +1,67 @@
+# Fine-Tuning Configuration for Gemma 4B
+# ========================================
+
+# Model Configuration
+model:
+  name: "google/gemma-1.1-4b-it"  # Base model to fine-tune
+  
+# Data Configuration
+data:
+  directory: "data"
+  files:
+    - "welcoming_gemma_clean.jsonl"
+    - "query_question_gemma_clean.jsonl"
+    - "rule_lookup_gemma_clean.jsonl"
+    - "out_of_scope_gemma_clean.jsonl"
+  
+# Quantization Configuration (QLoRA)
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_compute_dtype: "float16"
+  bnb_4bit_use_double_quant: true
+
+# LoRA Configuration
+lora:
+  r: 16
+  lora_alpha: 32
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  lora_dropout: 0.05
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+# Training Configuration
+training:
+  output_dir: "outputs"
+  num_train_epochs: 3
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 4
+  learning_rate: 2e-4
+  logging_steps: 10
+  save_strategy: "epoch"
+  save_total_limit: 2
+  fp16: true
+  optim: "paged_adamw_8bit"
+  max_seq_length: 512
+  report_to: "none"
+  packing: true
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  lr_scheduler_type: "cosine"
+
+# Tokenizer Configuration
+tokenizer:
+  pad_token: "eos_token"  # Use EOS token as padding token
+  
+# System
+system:
+  device_map: "auto"
+  torch_dtype: "float16"
+  trust_remote_code: true

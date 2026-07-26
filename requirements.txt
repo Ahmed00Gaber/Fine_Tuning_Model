@@ -1,0 +1,26 @@
+# Fine-Tuning Requirements for Gemma 4B
+# ============================
+
+# Core libraries
+transformers>=4.40.0
+peft>=0.10.0
+trl>=0.8.0
+bitsandbytes>=0.43.0
+accelerate>=0.27.0
+
+# Dataset handling
+datasets>=2.18.0
+
+# PyTorch (install with CUDA support)
+# torch>=2.2.0
+# For CUDA 12.1: pip install torch --index-url https://download.pytorch.org/whl/cu121
+# For CUDA 11.8: pip install torch --index-url https://download.pytorch.org/whl/cu118
+
+# Optional: For better progress tracking
+# tqdm
+
+# Optional: For logging to Weights & Biases
+# wandb
+
+# Optional: For TensorBoard logging
+# tensorboard
