@@ -1,0 +1,82 @@
+{
+  "per_source_type": {
+    "rule_lookup": {
+      "total": 6601,
+      "structural_pass": 6459,
+      "structural_fail": 142,
+      "semantic_candidates": 6601
+    },
+    "meta_query": {
+      "total": 2822,
+      "structural_pass": 2470,
+      "structural_fail": 352,
+      "semantic_candidates": 2822
+    },
+    "query_question": {
+      "total": 7385,
+      "structural_pass": 7326,
+      "structural_fail": 59,
+      "semantic_candidates": 7385
+    },
+    "metadata_search": {
+      "total": 2128,
+      "structural_pass": 2071,
+      "structural_fail": 57,
+      "semantic_candidates": 2128
+    },
+    "welcoming": {
+      "total": 477,
+      "structural_pass": 414,
+      "structural_fail": 63,
+      "semantic_candidates": 477
+    },
+    "out_of_scope": {
+      "total": 775,
+      "structural_pass": 745,
+      "structural_fail": 30,
+      "semantic_candidates": 775
+    }
+  },
+  "agent_summary": {
+    "accept": 17110,
+    "corrected_same_type": 1433,
+    "rerouted": 235,
+    "rejected": 1410
+  },
+  "final_clean_counts": {
+    "rule_lookup": 6718,
+    "out_of_scope": 75,
+    "meta_query": 2296,
+    "query_question": 7294,
+    "metadata_search": 2067,
+    "welcoming": 328
+  },
+  "reroute_matrix": {
+    "rule_lookup": {
+      "out_of_scope": 1
+    },
+    "meta_query": {
+      "rule_lookup": 154,
+      "query_question": 11,
+      "metadata_search": 3
+    },
+    "query_question": {
+      "meta_query": 8,
+      "out_of_scope": 8,
+      "metadata_search": 4
+    },
+    "metadata_search": {
+      "meta_query": 1
+    },
+    "welcoming": {
+      "query_question": 7,
+      "out_of_scope": 23,
+      "meta_query": 3
+    },
+    "out_of_scope": {
+      "query_question": 8,
+      "welcoming": 2,
+      "meta_query": 2
+    }
+  }
+}
